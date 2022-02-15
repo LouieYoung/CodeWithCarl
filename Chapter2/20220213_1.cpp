@@ -9,7 +9,14 @@ long long binary_search(int arr[], int l, int r, int x)
 {
     if (r >= 1)
     {
+        int mid = 1 + (r - 1) / 2;
+        if (arr[mid] == x)
+            return mid;
+        if (arr[mid] > x)
+            return binary_search(arr, l, mid -1, x);
+        return binary_search(arr, mid +1, r, x);
     }
+    return -1;
 }
 
 // 时间复杂度：O(2^n)，空间复杂度：O(1)
@@ -31,7 +38,8 @@ int main()
             system_clock::now().time_since_epoch());
 
         // long long a = fibonacci1(n);
-        long long a = fibonacci2(1, 1, n);
+        int arr[] = new int[5];
+        long long a = binary_search(1, 1, n);
         milliseconds end_time = duration_cast<milliseconds>(
             system_clock::now().time_since_epoch());
         cout << a << endl;
