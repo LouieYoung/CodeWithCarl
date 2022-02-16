@@ -56,7 +56,6 @@ int main()
         milliseconds start_time = duration_cast<milliseconds>(
             system_clock::now().time_since_epoch());
 
-        // long long a = fibonacci1(n);
         int arr[] = {1,2,3,4,5};
         long long a = binary_search(arr,0, 4, n);
         milliseconds end_time = duration_cast<milliseconds>(
