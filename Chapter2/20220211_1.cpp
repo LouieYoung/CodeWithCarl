@@ -1,4 +1,4 @@
-//P19.Êó∂Èó¥Â§çÊùÇÂ∫¶
+//P19. ±º‰∏¥‘”∂»
 #include <iostream>
 #include <chrono>
 #include <thread>
@@ -13,7 +13,7 @@ void function1(long long n) {
     }
 }
 
- // O(n¬≤)
+ // O(n?)
  void function2(long long n) {
      long long k = 0;
      for (long long i = 0; i < n; i++) {
@@ -27,16 +27,16 @@ void function1(long long n) {
  void function3(long long n) {
      long long k = 0;
      for (long long i = 0; i < n; i++) {
-         for (long long j = 1; j < n; j = j*2) { // Ê≥®ÊÑèËøôÈáåj=1
+         for (long long j = 1; j < n; j = j*2) { // ◊¢“‚’‚¿Ôj=1
             k++;
          }
      }
  }
 
  int main() {
-     long long n; // Êï∞ÊçÆËßÑÊ®°
+     long long n; //  ˝æ›πÊƒ£
      while (1) {
-         cout << "ËæìÂÖ•nÔºö";
+         cout << " ‰»În£∫";
          cin >> n;
          milliseconds start_time = duration_cast<milliseconds > (
              system_clock::now().time_since_epoch()
@@ -47,50 +47,50 @@ void function1(long long n) {
          milliseconds end_time = duration_cast<milliseconds > (
              system_clock::now().time_since_epoch()
          );
-         cout << "ËÄóÊó∂Ôºö" << milliseconds(end_time).count() - milliseconds(start_time).count() <<" ms"<< endl;
+         cout << "∫ƒ ±£∫" << milliseconds(end_time).count() - milliseconds(start_time).count() <<" ms"<< endl;
      }
  }
 
 
-// ËøêÁÆóÁªìÊûú
+// ‘ÀÀ„Ω·π˚
 // O(n)
-// ËæìÂÖ•nÔºö100000000
-// ËÄóÊó∂Ôºö134 ms
-// ËæìÂÖ•nÔºö1000000000
-// ËÄóÊó∂Ôºö1338 ms
-// ËæìÂÖ•nÔºö500000000
-// ËÄóÊó∂Ôºö672 ms
-// ËæìÂÖ•nÔºö744000000
-// ËÄóÊó∂Ôºö998 ms
+//  ‰»În£∫100000000
+// ∫ƒ ±£∫134 ms
+//  ‰»În£∫1000000000
+// ∫ƒ ±£∫1338 ms
+//  ‰»În£∫500000000
+// ∫ƒ ±£∫672 ms
+//  ‰»În£∫744000000
+// ∫ƒ ±£∫998 ms
 
-// O(n¬≤)
-// ËæìÂÖ•nÔºö1000
-// ËÄóÊó∂Ôºö1 ms
-// ËæìÂÖ•nÔºö10000
-// ËÄóÊó∂Ôºö141 ms
-// ËæìÂÖ•nÔºö20000
-// ËÄóÊó∂Ôºö535 ms
-// ËæìÂÖ•nÔºö25000
-// ËÄóÊó∂Ôºö845 ms
-// ËæìÂÖ•nÔºö27000
-// ËÄóÊó∂Ôºö983 ms
-// ËæìÂÖ•nÔºö28000
-// ËÄóÊó∂Ôºö1056 ms
+// O(n?)
+//  ‰»În£∫1000
+// ∫ƒ ±£∫1 ms
+//  ‰»În£∫10000
+// ∫ƒ ±£∫141 ms
+//  ‰»În£∫20000
+// ∫ƒ ±£∫535 ms
+//  ‰»În£∫25000
+// ∫ƒ ±£∫845 ms
+//  ‰»În£∫27000
+// ∫ƒ ±£∫983 ms
+//  ‰»În£∫28000
+// ∫ƒ ±£∫1056 ms
 
 // O(nlogn)
-// ËæìÂÖ•nÔºö10000
-// ËÄóÊó∂Ôºö1 ms
-// ËæìÂÖ•nÔºö1000000
-// ËÄóÊó∂Ôºö30 ms
-// ËæìÂÖ•nÔºö10000000
-// ËÄóÊó∂Ôºö367 ms
-// ËæìÂÖ•nÔºö20000000
-// ËÄóÊó∂Ôºö775 ms
-// ËæìÂÖ•nÔºö30000000
-// ËÄóÊó∂Ôºö1180 ms
-// ËæìÂÖ•nÔºö25000000
-// ËÄóÊó∂Ôºö966 ms
-// ËæìÂÖ•nÔºö27000000
-// ËÄóÊó∂Ôºö1053 ms
-// ËæìÂÖ•nÔºö26000000
-// ËÄóÊó∂Ôºö1008 ms
+//  ‰»În£∫10000
+// ∫ƒ ±£∫1 ms
+//  ‰»În£∫1000000
+// ∫ƒ ±£∫30 ms
+//  ‰»În£∫10000000
+// ∫ƒ ±£∫367 ms
+//  ‰»În£∫20000000
+// ∫ƒ ±£∫775 ms
+//  ‰»În£∫30000000
+// ∫ƒ ±£∫1180 ms
+//  ‰»În£∫25000000
+// ∫ƒ ±£∫966 ms
+//  ‰»În£∫27000000
+// ∫ƒ ±£∫1053 ms
+//  ‰»În£∫26000000
+// ∫ƒ ±£∫1008 ms

@@ -1,4 +1,4 @@
-// P27.æ–æ³¢é‚£å¥‘æ•°åˆ—
+// P27.ì³²¨ÄÇÆõÊıÁĞ
 #include <iostream>
 #include <chrono>
 #include <thread>
@@ -14,13 +14,13 @@ long long fibonacci1(long long i)
     return fibonacci1(i - 1) + fibonacci1(i - 2);
 }
 
-// æ—¶é—´å¤æ‚åº¦ï¼šO(2^n)ï¼Œç©ºé—´å¤æ‚åº¦ï¼šO(1)
-// è¾“å…¥nï¼š40
+// Ê±¼ä¸´ÔÓ¶È£ºO(2^n)£¬¿Õ¼ä¸´ÔÓ¶È£ºO(1)
+// ÊäÈën£º40
 // 102334155
-// è€—æ—¶ï¼š691 ms
-// è¾“å…¥nï¼š50
+// ºÄÊ±£º691 ms
+// ÊäÈën£º50
 // 12586269025
-// è€—æ—¶ï¼š85956 ms
+// ºÄÊ±£º85956 ms
 
 long long fibonacci2(long long first, long long second, long long n)
 {
@@ -33,20 +33,20 @@ long long fibonacci2(long long first, long long second, long long n)
     return fibonacci2(second, first + second, n - 1);
 }
 
-// æ—¶é—´å¤æ‚åº¦ï¼šO(n)ï¼Œç©ºé—´å¤æ‚åº¦ï¼šO(n)
-// è¾“å…¥nï¼š40
+// Ê±¼ä¸´ÔÓ¶È£ºO(n)£¬¿Õ¼ä¸´ÔÓ¶È£ºO(n)
+// ÊäÈën£º40
 // 102334155
-// è€—æ—¶ï¼š0 ms
-// è¾“å…¥nï¼š50
+// ºÄÊ±£º0 ms
+// ÊäÈën£º50
 // 12586269025
-// è€—æ—¶ï¼š0 ms
+// ºÄÊ±£º0 ms
 
 int main()
 {
-    long long n; // æ•°æ®è§„æ¨¡
+    long long n; // Êı¾İ¹æÄ£
     while (1)
     {
-        cout << "è¾“å…¥nï¼š";
+        cout << "ÊäÈën£º";
         cin >> n;
         milliseconds start_time = duration_cast<milliseconds>(
             system_clock::now().time_since_epoch());
@@ -56,6 +56,6 @@ int main()
         milliseconds end_time = duration_cast<milliseconds>(
             system_clock::now().time_since_epoch());
         cout << a << endl;
-        cout << "è€—æ—¶ï¼š" << milliseconds(end_time).count() - milliseconds(start_time).count() << " ms" << endl;
+        cout << "ºÄÊ±£º" << milliseconds(end_time).count() - milliseconds(start_time).count() << " ms" << endl;
     }
 }

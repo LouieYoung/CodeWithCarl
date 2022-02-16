@@ -1,4 +1,4 @@
-// P31.äºŒåˆ†æ³•ï¼ˆé€’å½’å®ç°ï¼‰
+// P31.¶ş·Ö·¨£¨µİ¹éÊµÏÖ£©
 #include <iostream>
 #include <chrono>
 #include <thread>
@@ -7,42 +7,45 @@ using namespace chrono;
 
 long long binary_search(int arr[], int l, int r, int x)
 {
-    if (r >= 1)
+ 
+    if (r >= l)
     {
-        int mid = 1 + (r - 1) / 2;
-        if (arr[mid] == x)
+        int mid = (r + l) / 2;
+        if (arr[mid] == x){
             return mid;
-        if (arr[mid] > x)
+        }
+        if (arr[mid] > x){
             return binary_search(arr, l, mid -1, x);
+        }
         return binary_search(arr, mid +1, r, x);
     }
     return -1;
 }
 
-// æ—¶é—´å¤æ‚åº¦ï¼šO(2^n)ï¼Œç©ºé—´å¤æ‚åº¦ï¼šO(1)
-// è¾“å…¥nï¼š40
+// ¿Õ¼ä¸´ÔÓ¶È£ºO(logn)
+// ÊäÈën£º40
 // 102334155
-// è€—æ—¶ï¼š691 ms
-// è¾“å…¥nï¼š50
+// ºÄÊ±£º691 ms
+// ÊäÈën£º50
 // 12586269025
-// è€—æ—¶ï¼š85956 ms
+// ºÄÊ±£º85956 ms
 
 int main()
 {
-    long long n; // æ•°æ®è§„æ¨¡
+    long long n; // Êı¾İ¹æÄ£
     while (1)
     {
-        cout << "è¾“å…¥nï¼š";
+        cout << "ÊäÈën£º";
         cin >> n;
         milliseconds start_time = duration_cast<milliseconds>(
             system_clock::now().time_since_epoch());
 
         // long long a = fibonacci1(n);
-        int arr[] = new int[5];
-        long long a = binary_search(1, 1, n);
+        int arr[] = {1,2,3,4,5};
+        long long a = binary_search(arr,0, 4, n);
         milliseconds end_time = duration_cast<milliseconds>(
             system_clock::now().time_since_epoch());
         cout << a << endl;
-        cout << "è€—æ—¶ï¼š" << milliseconds(end_time).count() - milliseconds(start_time).count() << " ms" << endl;
+        cout << "ºÄÊ±£º" << milliseconds(end_time).count() - milliseconds(start_time).count() << " ms" << endl;
     }
 }
