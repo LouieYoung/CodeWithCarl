@@ -7,67 +7,67 @@ using namespace std;
 class Solution
 {
 public:
-    string listNodeToString(ListNode *node)
+    struct ListNode
     {
-        if (node == nullptr)
+        int val;
+        ListNode *next;
+        ListNode() : val(0), next(nullptr) {}
+        ListNode(int x) : val(x), next(nullptr) {}
+        ListNode(int x, ListNode *next) : val(x), next(next) {}
+    };
+
+    //头结点和非机头结点分开删除
+    ListNode *removeElements1(ListNode *head, int val)
+    {
+        //删除头结点
+        while (head != NULL && head->val == val)
         {
-            return "[]";
+            ListNode *tmp = head;
+            head = head->next;
+            delete tmp;
         }
 
-        string result;
-        while (node)
+        //删除非头结点
+        ListNode *cur = head;
+        while (cur != NULL && cur->next != NULL)
         {
-            result += to_string(node->val) + ", ";
-            node = node->next;
+            if (cur->next->val == val)
+            {
+                ListNode *tmp = cur->next;
+                cur->next = cur->next->next;
+                delete tmp;
+            }
+            else
+            {
+                cur = cur->next;
+            }
         }
-        return "[" + result.substr(0, result.length() - 2) + "]";
+        return head;
     }
 
-    ListNode *stringToListNode(string input)
+    //使用虚拟头结点来一次删除所有的
+    ListNode *removeElements2(ListNode *head, int val)
     {
-        // Generate list from the input
-        vector<int> list = this->stringToInteger(input);
+        ListNode *dummyHead = new ListNode(0);
+        dummyHead->next = head;
 
-        // Now convert that list into linked list
-        ListNode *dummyRoot = new ListNode(0);
-        ListNode *ptr = dummyRoot;
-        for (int item : list)
+        //删除所有结点
+        ListNode *cur = dummyHead;
+        while (cur != NULL && cur->next != NULL)
         {
-            ptr->next = new ListNode(item);
-            ptr = ptr->next;
+            if (cur->next->val == val)
+            {
+                ListNode *tmp = cur->next;
+                cur->next = cur->next->next;
+                delete tmp;
+            }
+            else
+            {
+                cur = cur->next;
+            }
         }
-        ptr = dummyRoot->next;
-        delete dummyRoot;
-        return ptr;
-    }
-
-    int stringToInteger(string input)
-    {
-        return stoi(input);
-    }
-
-    ListNode *removeElements(ListNode *head, int val)
-    {
+        head = dummyHead->next;
+        delete dummyHead;
+        return head;
     }
 };
-
-struct ListNode
-{
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
-int main()
-{
-
-    Solution solution;
-    ListNode *head = [ 7, 7, 7, 7 ];
-    int val = 7;
-    ListNode *nums = solution.removeElements(head, val);
-
-    string out = solution.listNodeToString(ret);
-    cout << out << endl;
-}
