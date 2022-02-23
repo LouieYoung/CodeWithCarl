@@ -20,28 +20,6 @@ public:
         while(index--){
             cur=cur->next;
         }
-        return 0;class MyLinkedList {
-public:
-
-    struct LinkedNode {
-        int val;
-        LinkedNode* next;
-        LinkedNode(int val):val(val),next(nullptr){}
-    };
-
-    MyLinkedList() {
-        _dummyHead = new LinkedNode(0);
-        _size = 0;
-    }
-    
-    int get(int index) {
-        if(index > (_size-1) || _size<0){
-            return -1;
-        }
-        LinkedNode* cur = _dummyHead->next;
-        while(index--){
-            cur=cur->next;
-        }
         return cur->val;
     }
     
